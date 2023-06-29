@@ -9,7 +9,6 @@ pipeline {
   }
 
   options {
-        ansiColor('xterm')
         skipDefaultCheckout()
         buildDiscarder(logRotator(numToKeepStr: '10'))
   }
