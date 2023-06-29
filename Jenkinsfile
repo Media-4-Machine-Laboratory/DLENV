@@ -17,19 +17,19 @@ pipeline {
         script {
           BRANCH_NAME = env.CHANGE_BRANCH ? env.CHANGE_BRANCH : env.BRANCH_NAME
           deleteDir();
-          git url: 'https://github.com/$(env.GIT_HOST)/$(env.PRODUCT).git', branch: BRANCH_NAME
+          git url: 'https://github.com/${GIT_HOST}/${PRODUCT}.git', branch: BRANCH_NAME
         }
       }
     }
     stage('Build') {
       steps {
-        sh "docker build . -t $(env.PRODUCT):py"
+        sh "docker build . -t ${PRODUCT}:py"
       }
     }
     stage('Test') {
       steps {
         script {
-          sh "docker run -it -tty --name $(env.PRODUCT) $(env.PRODUCT):py /usr/bin/make test"
+          sh "docker run -it -tty --name ${PRODUCT} ${PRODUCT}:py /usr/bin/make test"
         }
       }
     }
@@ -38,7 +38,7 @@ pipeline {
   post {
     always {
       script {
-        sh "docker rm $(env.PRODUCT)"
+        sh "docker rm ${PRODUCT}"
       }
       deleteDir()
     }
