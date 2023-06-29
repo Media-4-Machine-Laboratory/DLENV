@@ -1,4 +1,4 @@
-pipeline {
+opipeline {
   agent any
 
   environment {
@@ -23,6 +23,7 @@ pipeline {
     }
     stage('Build') {
       steps {
+        echo "${PRODUCT}"
         sh "docker build . -t ${PRODUCT}:py"
       }
     }
