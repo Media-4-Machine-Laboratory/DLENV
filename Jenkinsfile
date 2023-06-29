@@ -24,7 +24,7 @@ pipeline {
     stage('Build') {
       steps {
         echo "${PRODUCT}"
-        echo ls /var/jenkins_home
+        echo -e "`ls /var/jenkins_home`"
       }
     }
     stage('Test') {
