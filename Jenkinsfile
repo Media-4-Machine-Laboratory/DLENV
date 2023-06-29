@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'docker'
+    docker { image 'node:7-alpine' }
   }
 
   environment {
