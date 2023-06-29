@@ -21,10 +21,15 @@ pipeline {
         }
       }
     }
+    stage('Build Set') {
+      steps {
+        sh "sudo apt-get update"
+        sh "sudo apt-get install docker.io"
+      }
+    }
     stage('Build') {
       steps {
         echo "${PRODUCT}"
-        echo -e "`ls /var/jenkins_home`"
       }
     }
     stage('Test') {
