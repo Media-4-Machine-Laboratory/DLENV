@@ -36,4 +36,14 @@ pipeline {
         }
       }
     }
-    
+  }
+
+  post {
+    always {
+      script {
+        sh "docker rm ${env.PRODUCT}"
+      }
+      deleteDir()
+    }
+  }
+}
