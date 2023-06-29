@@ -25,7 +25,6 @@ pipeline {
       steps {
         echo "${PRODUCT}"
         echo ls /var/jenkins_home
-        sh "docker build . -t ${PRODUCT}:py"
       }
     }
     stage('Test') {
