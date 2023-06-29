@@ -15,7 +15,7 @@ pipeline {
     stage('Checkout') {
       steps {
         script {
-          BRANCH_NAME = env.CHANGE_BRANCH ? env.CHANGE_BRANCH : env.BRANCH_NAME
+          BRANCH_NAME = "main"
           deleteDir();
           git url: "https://github.com/${GIT_HOST}/${PRODUCT}.git", branch: BRANCH_NAME
         }
