@@ -23,8 +23,8 @@ pipeline {
     }
     stage('Build Set') {
       steps {
-        sh "sudo apt-get update"
-        sh "sudo apt-get install docker.io"
+        sh "apt-get update"
+        sh "apt-get install docker.io"
       }
     }
     stage('Build') {
