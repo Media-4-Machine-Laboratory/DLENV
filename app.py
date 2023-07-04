@@ -1,2 +1,1 @@
-f = open("./result.txt", "w")
-f.write("1+1 = 2")
+print(1+1)
