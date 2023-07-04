@@ -1,2 +1,2 @@
 f = open("./result.txt", "w")
-f.write(1+1)
+f.write("1+1 = 2")
