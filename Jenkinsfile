@@ -31,7 +31,7 @@ pipeline {
     stage('Test') {
       steps {
         script {
-          sh "docker run -it -tty --name ${PRODUCT} ml-learning:py /usr/bin/make test"
+          sh "docker run -it --name ${PRODUCT} ml-learning:py /usr/bin/make test"
         }
       }
     }
