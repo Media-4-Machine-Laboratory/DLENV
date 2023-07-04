@@ -25,6 +25,7 @@ pipeline {
       steps {
         script {
           sh "docker build -t ${PRODUCT}:py ."
+        }
       }
     }
     stage('Test') {
