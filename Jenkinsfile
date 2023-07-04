@@ -21,12 +21,6 @@ pipeline {
         }
       }
     }
-    stage('Build Set') {
-      steps {
-        sh "apt-get update"
-        sh "apt-get install docker.io"
-      }
-    }
     stage('Build') {
       steps {
         echo "${PRODUCT}"
