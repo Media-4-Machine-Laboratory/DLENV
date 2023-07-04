@@ -7,4 +7,4 @@ WORKDIR /usr/src
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
 CMD ["app.py"]
-RUN cat ./result.txt
+RUN cat /usr/src/result.txt
