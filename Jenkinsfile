@@ -32,7 +32,6 @@ pipeline {
       steps {
         script {
           sh "docker run -t --name ${PRODUCT} ml-learning:py"
-          sh "docker inspect ${PRODUCT}"
         }
       }
     }
