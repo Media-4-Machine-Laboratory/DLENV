@@ -24,7 +24,7 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          sh "docker build -t ${PRODUCT}:py ."
+          sh "docker build -t ml-learning:py ."
         }
       }
     }
