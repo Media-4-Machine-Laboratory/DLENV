@@ -32,7 +32,7 @@ pipeline {
       steps {
         script {
           sh "docker run -t --name ${PRODUCT} ml-learning:py"
-          sh "cat ./result.txt"
+          sh "cat /usr/src/result.txt"
         }
       }
     }
