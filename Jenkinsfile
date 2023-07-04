@@ -43,6 +43,7 @@ pipeline {
     always {
       script {
         sh "docker rm ${PRODUCT}"
+        sh "docker rmi ml-learning:py"
       }
       deleteDir()
     }
