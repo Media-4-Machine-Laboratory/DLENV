@@ -50,7 +50,7 @@ pipeline {
         sh "docker rmi ml-learning:py"
         sh "curl -i -X POST \
             -H '"'Content-Type: application/json'"' \
-            -d ''{"username": "${MATTERMOST_USERID}", "channel_id": "${MATTERMOST_CHANNEL_ID}", "attachments": [{"text": "completed progress :tada:"}]}'' \
+            -d ''{"username": "${MATTERMOST_USERID}", "channel_id": "${MATTERMOST_CHANNEL_ID}", "attachments": [{"text": "completed progress \:tada\:"}]}'' \
             https://a0ec-168-115-40-3.ngrok-free.app/hooks/c33mhc5gz3rsuxkop75r57nxby"
       }
       deleteDir()
