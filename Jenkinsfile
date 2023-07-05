@@ -28,7 +28,8 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          sh "docker build -t ml-learning:py ."
+          def output = sh(returnStdout:true, script:"docker build -t ml-learning:py .")
+          echo output
           echo " ----- Completed Build Process ----- "
         }
       }
