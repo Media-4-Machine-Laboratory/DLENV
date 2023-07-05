@@ -47,38 +47,6 @@ pipeline {
       script {
         sh "docker rm ${PRODUCT}"
         sh "docker rmi ml-learning:py"
-        sh "REQUEST=\'curl -i \
-            -X POST \
-            -d \'{ \
-                \"channel\": \"${CHANNEL}\", \
-                \"icon_url\": \"https://www.mattermost.org/wp-content/uploads/2016/04/icon.png\", \
-                \"attachments\": [{ \
-                        \"fallback\": \"Nouvelle construction Jenkins\", \
-                        \"color\": \"#FF8000\", \
-                        \"text\": \"Informations sur la construction :\", \
-                        \"author_name\": \"Jenkins\", \
-                        \"author_icon\": \"https://myjenkins .com/url/vers/photo/jenkins.png\", \
-                        \"author_link\": \"https://myjenkins.com/\", \
-                        \"title\": \"Nouvelle version déployée\", \
-                        \"title_link\": \"$BUILD_URL\", \
-                        \"fields\": [{ \
-                                  \"short\":true, \
-                                  \"title\":\"Branche\", \
-                                  \"value\":\"$_BRANCH_NAME\" \
-                        }, \
-                        { \
-                                  \"short\":true, \
-                                  \"title\":\"Version\", \
-                                  \"value\":\"$_PROJECT_VERSION\" \
-                        }, \
-                        { \
-                                \"short\":false, \
-                                \"title\":\"Détails\", \
-                                \"value\":\"$BUILD_URL\" \
-                        }] \
-        }] \
-        }'\
-        ${MATTERMOST_URL}"
       }
       deleteDir()
     }
