@@ -18,6 +18,7 @@ pipeline {
           BRANCH_NAME = "main"
           deleteDir();
           git url: "https://github.com/${GIT_HOST}/${PRODUCT}.git", branch: BRANCH_NAME
+          echo " ----- Completed Checkout Process ----- "
         }
       }
     }
