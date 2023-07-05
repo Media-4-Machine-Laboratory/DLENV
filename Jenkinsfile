@@ -17,7 +17,7 @@ pipeline {
         script {
           BRANCH_NAME = "main"
           deleteDir();
-          git url: "https://github.com/${GIT_HOST}/${PRODUCT}.git", branch: BRANCH_NAME, credentialsId: 'jenkins-private-deploy-key'
+          git url: "https://github.com/${GIT_HOST}/${PRODUCT}.git", branch: BRANCH_NAME, credentialsId: 'm4ml-jenkins-key'
           echo " ----- Completed Checkout Process ----- "
         }
       }
