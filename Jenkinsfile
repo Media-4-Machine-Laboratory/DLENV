@@ -25,6 +25,7 @@ pipeline {
       steps {
         script {
           sh "docker build -t ml-learning:py ."
+          echo " ----- Completed Build Process ----- "
         }
       }
     }
@@ -32,7 +33,7 @@ pipeline {
       steps {
         script {
           sh "docker run -t --name ${PRODUCT} ml-learning:py | cat "
-          echo " ----- completed Test Process ----- "
+          echo " ----- Completed Test Process ----- "
         }
       }
     }
