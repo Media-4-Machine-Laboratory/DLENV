@@ -7,15 +7,26 @@ RUN apt-get -y update && apt-get -y install \
     make \
     build-essential \
     wget \
+    curl \
     bzip2 \
     zlib1g-dev \
     libbz2-dev \
     libreadline-dev \
     libssl-dev \
-    ca-certificates
+    ca-certificates \ 
+    libreadline-dev \ 
+    llvm \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev \
+    libgl1-mesa-glx \
+    libffi-dev
 
 ENV TZ=Asia/Seoul
 RUN sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
+
+RUN rm /usr/bin/python3
 
 RUN mkdir src
 WORKDIR /src
@@ -27,3 +38,4 @@ RUN ./configure
 RUN make altinstall
 
 RUN ln -s /src/Python-3.7.17/python python3
+RUN ln -s /src/Python-3.7.17/python python
