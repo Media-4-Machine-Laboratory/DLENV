@@ -1,0 +1,41 @@
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+
+RUN apt-get -y update && apt-get -y install \
+    ssh \
+    sudo \
+    git \
+    make \
+    build-essential \
+    wget \
+    curl \
+    bzip2 \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libssl-dev \
+    ca-certificates \ 
+    libreadline-dev \ 
+    llvm \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev \
+    libgl1-mesa-glx \
+    libffi-dev
+
+ENV TZ=Asia/Seoul
+RUN sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
+
+RUN rm /usr/bin/python3
+
+RUN mkdir src
+WORKDIR /src
+
+RUN wget https://www.python.org/ftp/python/3.7.17/Python-3.7.17.tgz
+RUN tar -xvzf Python-3.7.17.tgz
+WORKDIR /src/Python-3.7.17
+RUN ./configure
+RUN make altinstall
+
+RUN ln -s /src/Python-3.7.17/python python3
+RUN ln -s /src/Python-3.7.17/python python
