@@ -18,7 +18,9 @@ RUN apt-get -y update && apt-get -y install \
     libssl-dev \
     libreadline-dev \
     libffi-dev \
-    wget
+    wget \
+    libglib2.0-0 \
+    libgl1-mesa-glx
 
 # python install
 RUN wget https://www.python.org/ftp/python/${PYVER}/Python-${PYVER}.tgz
