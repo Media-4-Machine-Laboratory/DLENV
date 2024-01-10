@@ -1,8 +1,8 @@
-FROM nvidia/cuda:11.1.1-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:12.1.1-cudnn8-devel-ubuntu20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
-ENV PYVER=3.8.18
-ENV TORCHVER=111
+ENV PYVER=3.8.17
+ENV TORCHVER=121
 
 RUN apt-get -y update && apt-get -y install \
     ca-certificates \
@@ -20,7 +20,9 @@ RUN apt-get -y update && apt-get -y install \
     libffi-dev \
     wget \
     libglib2.0-0 \
-    libgl1-mesa-glx
+    libgl1-mesa-glx \
+    libbz2-dev \ 
+    liblzma-dev
 
 # python install
 RUN wget https://www.python.org/ftp/python/${PYVER}/Python-${PYVER}.tgz
@@ -45,3 +47,5 @@ RUN python -m pip install torch torchvision --index-url https://download.pytorch
 # Install requirements
 RUN mkdir /src
 WORKDIR /src
+COPY ./requirements.txt /src
+COPY ./install.sh /src
