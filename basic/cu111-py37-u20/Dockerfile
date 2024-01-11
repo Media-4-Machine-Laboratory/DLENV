@@ -1,8 +1,8 @@
-FROM nvidia/cuda:12.1.1-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.1.1-cudnn8-devel-ubuntu20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
-ENV PYVER=3.8.17
-ENV TORCHVER=121
+ENV PYVER=3.7.17
+ENV TORCHVER=111
 
 RUN apt-get -y update && apt-get -y install \
     ca-certificates \
