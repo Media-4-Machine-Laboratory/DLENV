@@ -9,7 +9,7 @@ You can see these images on DockerHub : [https://hub.docker.com/r/m4ml/dlenv](ht
 
 ## Basic Images.  
 
-Instruction : [Basic.md](Basic.md).  
+Instruction : [Basic.md](assets/Basic.md).  
 
 
 ### Latest Images.  
@@ -44,7 +44,7 @@ These images provide basic deep learning frameworks.
 > cuda: 11.8.0 / pytorch: cu118 / python3.11.7 / ubuntu20.04    
 
 
-See More Versions or Previous Version : [AllImages.md](AllImages.md)  
+See More Versions or Previous Version : [AllImages.md](assets/AllImages.md)  
 
 
 ## Special Images.  
