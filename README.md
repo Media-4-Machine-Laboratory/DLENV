@@ -11,7 +11,7 @@ You can see these images on DockerHub : [https://hub.docker.com/r/m4ml/dlenv](ht
 
 Instruction : [Basic.md](Basic.md).  
 
----
+
 ### Latest Images.  
 These images provide basic deep learning frameworks.  
 
@@ -46,7 +46,7 @@ These images provide basic deep learning frameworks.
 
 See More Versions or Previous Version : [AllImages.md](AllImages.md)  
 
----
+
 ## Special Images.  
 These images support additional software.  
 
