@@ -29,7 +29,10 @@ RUN apt-get -y update && apt-get -y install \
     libmpfr-dev \
     libboost-dev \
     libboost-thread-dev \
-    libtbb-dev
+    libtbb-dev \
+    tk8.6-dev \
+    python3.8-tk \
+    python3.8-dev
 
 # python install
 RUN wget https://www.python.org/ftp/python/${PYVER}/Python-${PYVER}.tgz
@@ -54,4 +57,4 @@ RUN apt-get -y install python3-pip
 RUN python -m pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --index-url https://download.pytorch.org/whl/cu${TORCHVER}
 
 COPY ./install.sh /
-CMD ["sh", "install.sh"]
+#ENTRYPOINT [ "sh install.sh" ]

@@ -13,6 +13,10 @@ cd /PyMesh
 git submodule update --init
 export PYMESH_PATH="/PyMesh"
 
+cd /PyMesh
+python -m pip install .
+./setup.py install
+
 python -m pip install -r ${PYMESH_PATH}/python/requirements.txt
 
 echo "Install NeRF-Texture"
