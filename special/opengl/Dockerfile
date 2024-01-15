@@ -39,7 +39,8 @@ RUN apt-get -y update && apt-get -y install \
     libgl1-mesa-dev \
     libglfw3-dev \
     libglfw3 \
-    python3-pip
+    python3-pip \
+    libglm-dev
 
 # python install
 RUN wget https://www.python.org/ftp/python/${PYVER}/Python-${PYVER}.tgz
@@ -58,8 +59,17 @@ RUN rm /Python-${PYVER}.tgz
 
 # Install pip modules
 WORKDIR /
-#RUN apt-get -y install python3-pip
+
 RUN python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu${TORCHVER}
+RUN git clone https://github.com/Dav1dde/glad.git
+
+WORKDIR /glad/cmake
+RUN cmake .
+RUN make
+WORKDIR /glad
+RUN bash ./utility/download.sh
+RUN bash ./utility/generateall.sh
+RUN cp -r include/* /usr/include
 
 # Install requirements
 RUN mkdir /src
