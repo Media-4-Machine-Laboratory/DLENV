@@ -52,7 +52,7 @@ These images support additional software.
 Instruction : [Special.md](assets/Special.md)
 
 **opengl framework**
-> **opengl-cu121**  
+> **opengl**  
 > cuda: 12.1.1 / pytorch: cu121 / python: 3.11.7 / ubuntu20.04 / gcc / g++ / c++11 / opengl libraries: glfw, glew, glut  
 > 
 > **This image is tested on linux/amd64**

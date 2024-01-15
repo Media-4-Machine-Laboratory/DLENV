@@ -20,7 +20,7 @@ xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
 docker run --runtime=nvidia --gpus 0 --privileged -it \
  -v $XSOCK:$XSOCK:rw -v $XAUTH:$XAUTH:rw -v $HOME:$HOME -v {your-source-directory}:/src/src --env="XAUTHORITY=${XAUTH}"  --env="DISPLAY=${DISPLAY}" --env=TERM=xterm-256color --env=QT_X11_NO_MITSHM=1 \
- --shm-size=10G --net=host --name={container-name} m4ml/dlenv:opengl-cu121
+ --shm-size=10G --net=host --name={container-name} m4ml/dlenv:opengl
 ```
 
 #### On Windows  
@@ -28,7 +28,7 @@ docker run --runtime=nvidia --gpus 0 --privileged -it \
 2. Export DISPLAY on WSL  
 3. Start container with ...  
    ```bash
-   docker run -it --gpus all --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v {your-source-directory}:/src/src -e DISPLAY=$DISPLAY -e XAUTHORITY=$XAUTH --env=TERM=xterm-256color --env=QT_X11_NO_MITSHM=1 --shm-size=10G --net=host --name={container-name} m4ml/dlenv:opengl-cu121
+   docker run -it --gpus all --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v {your-source-directory}:/src/src -e DISPLAY=$DISPLAY -e XAUTHORITY=$XAUTH --env=TERM=xterm-256color --env=QT_X11_NO_MITSHM=1 --shm-size=10G --net=host --name={container-name} m4ml/dlenv:opengl
    ```
 
 #### On MacOS  
