@@ -1,8 +1,8 @@
-FROM nvidia/cuda:11.3.1-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV PYVER=3.8.17
-ENV TORCHVER=113
+ENV TORCHVER=118
 
 RUN apt-get -y update && apt-get -y install \
     ca-certificates \
@@ -51,10 +51,12 @@ RUN rm /Python-${PYVER}.tgz
 
 # Install pip
 WORKDIR /
-RUN apt-get -y install python3-pip
 
 # Install torch
-RUN python -m pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --index-url https://download.pytorch.org/whl/cu${TORCHVER}
+RUN python -m pip install torch==2.1.2+cu118 torchvision==0.16.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu${TORCHVER}
+RUN python -m pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 
-COPY ./install.sh /
-#ENTRYPOINT [ "sh install.sh" ]
+RUN git clone https://github.com/nerfstudio-project/nerfstudio.git
+WORKDIR /nerfstudio
+RUN python -m pip install --upgrade pip setuptools
+RUN python -m pip install -e .
